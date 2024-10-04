@@ -4,6 +4,6 @@
 
 > Kangkan Wang*, Chong Wang, Jian Yang, Guofeng Zhang;
 
-![pipeline](pipeline.png)
+![pipeline](./resource/pipeline.png)
 
 Official implementation of Clothed Human Performance Capture with a Double-layer Neural Radiance Fields.
