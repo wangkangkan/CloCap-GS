@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Clothed Human Performance Capture with a Double-layer Neural Radiance Fields</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="CSS/bootstrap-4.4.1.css">
+    <link rel="stylesheet" href="CSS/font-awesome.min.css">
+    <link rel="stylesheet" href="CSS/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container-head">
+      <div class="jumbotron text-center" style="margin-bottom:0; width: 100%;">
+        <h2>CloCap-GS: Clothed Human Performance Capture with 3D Gaussian Splatting</h2>
+        <hr>
+        <div class="row">
+          <div class="offset-sm-3 col-sm-6">
+            <div class="author-block">
+              <span>
+                <a href="https://wangkangkan.github.io/">Kangkan Wang</a><sup>*1,2</sup>,
+              </span>
+              <span>
+                Chong Wang<sup>1</sup>,
+              </span>
+              <span>
+                Jian Yang<sup>1,2</sup>,
+              </span>
+              <span>
+                Guofeng Zhang<sup>3</sup>
+              </span>
+              <hr>
+            </div>
+          </div>
+        </div>
+        <div class="author-block">
+          <span><sup>1</sup>Key Lab of Intelligent Perception and Systems for High-Dimensional Information of Ministry of Education,</span><br>
+          <span><sup>2</sup>Jiangsu Key Lab of Image and Video Understanding for Social Security,School of Computer Science and Engineering, <br>Nanjing University of Science and Technology, China</span><br>
+          <span><sup>3</sup>State Key Laboratory of CAD&CG, Zhejiang University, China</span>
+        </div>
+        <p style="margin-top: 20px;">
+          <a class="btn btn-primary" href=""><i class="fa fa-file"></i> Paper</a>
+          <a class="btn btn-primary" href="https://github.com/"><i class="fa fa-github"></i> Code(Coming Soon)</a>
+          <!-- <a class="btn btn-primary" href="https://ieeexplore.ieee.org/abstract/document/9870173/media#media"><i class="fa fa-video-camera"></i> Video</a> -->
+        </p>
+      </div>
+    </div>
+  
+    <div class="container" style="margin-top:20px;">
+      <div class="row">
+        <div class="col-sm-4">
+          <h3>Abstract</h3>
+          <hr>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 text-center">
+          <div class="pipeline-block"><img src="img/pipeline.png" class="img-responsive" style="width: 60%;"></div>
+          <div class="abstract-block">
+            <p class="text-justify">
+              Capturing the human body and clothing from videos
+              has obtained significant progress in recent years, but several
+              challenges remain to be addressed. Previous methods reconstruct
+              the 3D bodies and garments from videos with self-rotating human
+              motions or capture the body and clothing separately based on
+              neural implicit fields. However, the reconstruction methods for
+              self-rotating motions may cause instable tracking on dynamic
+              videos with arbitrary human motions, while implicit fields based
+              methods are limited to inefficient rendering and low quality
+              synthesis. To solve these problems, we propose a new method,
+              called CloCap-GS, for clothed human performance capture with
+              3D Gaussian Splatting. Specifically, we align 3D Gaussians with
+              the deforming geometries of body and clothing, and leverage
+              photometric constraints formed by matching Gaussians render-
+              ings with input video frames to recover temporal deformations
+              of the dense template geometry. The geometry deformations and
+              Gaussians properties of both the body and clothing are optimized
+              jointly, achieving both dense geometry tracking and novel-view
+              synthesis. In addition, we introduce a physics-aware material-
+              varying cloth model to preserve physically-plausible cloth dynam-
+              ics and body-clothing interactions that is pre-trained in a self-
+              supervised manner without preparing training data. Compared
+              with the existing methods, our method improves the accuracy of
+              dense geometry tracking and quality of novel-view synthesis for
+              a variety of daily garment types (e.g., loose clothes). Extensive
+              experiments in both quantitative and qualitative evaluations
+              demonstrate the effectiveness of CloCap-GS on real sparse-view
+              or monocular videos.        
+        </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4">
+          <h3>Result on Different Dataset</h3>
+          <hr>
+        </div>
+        <div class="col-12 text-center">
+          <img src="img/result.png" class="img-responsive" style="width: 70%;">
+          <!-- <div class="description">
+            <p>S4 from DeepCap Dataset(Left); "FranziRed" from DynaCap Dataset(Middle); S1 from DeepCap Dataset(Right)</p>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4">
+          <h3>Supplementary Video</h3>
+          <hr>
+        </div>
+        <div class="col-12 text-center">
+          <video controls="controls" width="80%" autoplay="autoplay"  volume="1" id="myVideo"  loop="loop">
+            <source id="introduction" src="video/introduction.mp4" type="video/mp4"/>
+          </video> 
+        </div>
+      </div>
+    </div>
+  
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8">
+          <h3>Recovery results on outdoor and monocular videos</h3>
+          <hr>
+        </div>
+        <div class="col-12 text-center">
+          <img src="img/wild.png" class="img-responsive" style="width: 50%;">
+          <!-- <div class="description">
+            <p>Retargeting the clothing between two persons</p>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8" >
+          <h3>Application of garment editing and retargeting</h3>
+          <hr>
+        </div>
+        <div class="col-12 text-center">
+          <img src="img/retarget.png" class="img-responsive" style="width: 50%;">
+          <div class="description">
+            <p>Retargeting the clothing between two persons</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4">
+          <h3>Citation</h3>
+          <hr>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 text-left">
+          <p>If you find this code useful for your research, please use the following BibTeX entry.</p>
+          <pre style="background-color: #eef0f4; padding-left: 20px;" class="rounded">
+            <code>
+  @inproceedings{CloCap-GS24,
+    author = {Kangkan Wang*, Chong Wang, Jian Yang, Guofeng Zhang}, 
+    title = {CloCap-GS: Clothed Human Performance Capture with 3D Gaussian Splatting}, 
+    journal = {Transactions on Image Processing (TIP)},
+    year = {2024},
+    }
+            </code>
+        </pre>
+        </div>
+      </div>
+    </div>
+  </body>
+  
+  
+</html>

@@ -1,0 +1,33 @@
+p{
+   font-family: 'Jost', sans-serif;
+   font-size: 16px;
+   font-weight: 400;
+}
+.container{
+    margin-bottom: 2rem;
+}
+.container-head{
+    margin: 0px;
+    width: 100%;
+}
+.author-block{
+    width: auto;
+    font-size:1.25rem !important;
+}
+
+.block-line{
+    border-bottom: 1px solid black;
+}
+
+.abstract-block{
+    font-size:1rem !important;
+}
+
+.pipeline-block{
+    margin-bottom: 2em;
+}
+
+.description{
+    color:#5a6268;
+    font-size:0.8rem
+}
