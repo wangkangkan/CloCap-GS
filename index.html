@@ -20,7 +20,7 @@
           <div class="offset-sm-3 col-sm-6">
             <div class="author-block">
               <span>
-                <a href="https://wangkangkan.github.io/">Kangkan Wang</a><sup>*1,2</sup>,
+                <a href="https://wangkangkan.github.io/">Kangkan Wang</a><sup>1,2</sup>,
               </span>
               <span>
                 Chong Wang<sup>1</sup>,
@@ -29,7 +29,7 @@
                 Jian Yang<sup>1,2</sup>,
               </span>
               <span>
-                Guofeng Zhang<sup>3</sup>
+                Guofeng Zhang<sup>*3</sup>
               </span>
               <hr>
             </div>
@@ -57,7 +57,7 @@
       </div>
       <div class="row">
         <div class="col-12 text-center">
-          <div class="pipeline-block"><img src="img/pipeline.png" class="img-responsive" style="width: 60%;"></div>
+          <div class="pipeline-block"><img src="img/overview.jpg" class="img-responsive" style="width: 80%;"></div>
           <div class="abstract-block">
             <p class="text-justify">
               Capturing the human body and clothing from videos
@@ -73,14 +73,14 @@
               called CloCap-GS, for clothed human performance capture with
               3D Gaussian Splatting. Specifically, we align 3D Gaussians with
               the deforming geometries of body and clothing, and leverage
-              photometric constraints formed by matching Gaussians render-
-              ings with input video frames to recover temporal deformations
+              photometric constraints formed by matching Gaussians renderings
+               with input video frames to recover temporal deformations
               of the dense template geometry. The geometry deformations and
               Gaussians properties of both the body and clothing are optimized
               jointly, achieving both dense geometry tracking and novel-view
               synthesis. In addition, we introduce a physics-aware material-
-              varying cloth model to preserve physically-plausible cloth dynam-
-              ics and body-clothing interactions that is pre-trained in a self-
+              varying cloth model to preserve physically-plausible cloth dynamics
+               and body-clothing interactions that is pre-trained in a self-
               supervised manner without preparing training data. Compared
               with the existing methods, our method improves the accuracy of
               dense geometry tracking and quality of novel-view synthesis for
@@ -97,7 +97,7 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-4">
-          <h3>Result on Different Dataset</h3>
+          <h3>Result on Different Datasets</h3>
           <hr>
         </div>
         <div class="col-12 text-center">
@@ -147,7 +147,7 @@
         <div class="col-12 text-center">
           <img src="img/retarget.png" class="img-responsive" style="width: 50%;">
           <div class="description">
-            <p>Retargeting the clothing between two persons</p>
+            <p>We can edit the dress size and retarget the dress to a new person.</p>
           </div>
         </div>
       </div>
@@ -165,10 +165,10 @@
           <p>If you find this code useful for your research, please use the following BibTeX entry.</p>
           <pre style="background-color: #eef0f4; padding-left: 20px;" class="rounded">
             <code>
-  @inproceedings{CloCap-GS24,
-    author = {Kangkan Wang*, Chong Wang, Jian Yang, Guofeng Zhang}, 
+  @inproceedings{CloCap-GS,
+    author = {Kangkan Wang, Chong Wang, Jian Yang, Guofeng Zhang*}, 
     title = {CloCap-GS: Clothed Human Performance Capture with 3D Gaussian Splatting}, 
-    journal = {Transactions on Image Processing (TIP)},
+    journal = {Submitted to IEEE Transactions on Image Processing},
     year = {2024},
     }
             </code>
