@@ -1,0 +1,129 @@
+task: 'if_nerf'
+gpus: [0]
+
+begin_ith_frame: 700
+num_train_frame: 300
+frame_interval: 1
+training_view: [0,5,9,11]
+test_view: [1,2,4,7,8,10,12]
+
+train_dataset_module: 'lib.datasets.light_stage.magdalena'
+train_dataset_path: 'lib/datasets/light_stage/magdalena.py'
+test_dataset_module: 'lib.datasets.light_stage.magdalena'
+test_dataset_path: 'lib/datasets/light_stage/magdalena.py'
+
+network_module: 'lib.networks.gs_network_snug'
+network_path: 'lib/networks/gs_network_snug.py'
+renderer_module: 'lib.networks.renderer.if_clight_renderer_msk'
+renderer_path: 'lib/networks/renderer/if_clight_renderer_msk.py'
+
+trainer_module: 'lib.train.trainers.if_nerf_clight'
+trainer_path: 'lib/train/trainers/if_nerf_clight.py'
+
+evaluator_module: 'lib.evaluators.if_nerf'
+evaluator_path: 'lib/evaluators/if_nerf.py'
+
+visualizer_module: 'lib.visualizers.if_nerf_perform'
+visualizer_path: 'lib/visualizers/if_nerf_perform.py'
+
+train_dataset:
+    data_root: 'data/magdalena/magdalena2000-allviews'
+    human: 'magdalena2000'
+    ann_file: 'data/magdalena/magdalena2000-allviews/annots.npy'
+    split: 'train'
+
+test_dataset:
+    data_root: 'data/magdalena/magdalena2000-allviews'
+    human: 'magdalena2000'
+    ann_file: 'data/magdalena/magdalena2000-allviews/annots.npy'
+    split: 'test'
+
+train:
+    batch_size: 1
+    collator: ''
+    # lr: 0.0005
+    lr: 0.001
+    weight_decay: 0
+    epoch: 30
+    scheduler:
+        type: 'exponential'
+        gamma: 0.1
+        decay_epochs: 30
+    num_workers: 1
+
+test:
+    batch_size: 1
+    collator: ''
+
+ep_iter: 1400
+save_ep: 100
+save_last_ep: 5
+eval_ep: 1000
+
+# data options
+H: 1024
+W: 1024
+ratio: 1.
+white_bkgd: False
+
+# record options
+log_interval: 1
+
+triplane:
+    n_features: 32
+    triplane_res: 256
+
+encoder:
+    n_features: 128
+
+
+lr:
+    xyz: 0.0002
+    vembed_smpl: 0.001
+    vembed_cloth: 0.001
+    geometry_smpl: 0.001
+    geometry_cloth: 0.001
+    appearance_smpl: 0.001
+    appearance_cloth: 0.001
+    deform: 0.0001
+    sim: 0.0001
+    param: 0.0001
+
+densify:
+    densify_from_iter: 500
+    # densify_from_iter: 1
+    densification_interval: 600
+    # densification_interval: 1
+    densify_grad_threshold: 0.0002
+    prune_min_opacity: 0.005
+    densify_extent: 1.0
+    max_n_gaussians: 524288
+    densify_until_iter: 15000
+
+mesh:
+    cloth_obj: "data/magdalena/magdalena2000-allviews/templatedeformT/cloth/clothes.obj"
+    smpl_obj: "data/magdalena/magdalena2000-allviews/templatedeformT/desmpl/detailsmpl.obj"
+
+gaussion_splatting:
+    sh_levels: 4
+    n_gaussians_per_surface_triangle: 6
+
+criterions:
+    img_loss:
+        weight: 20.0
+    loss_ssim:
+        weight: 5.0
+    IoUloss:
+        weight: 100.0 
+    smoothloss:
+        weight: 0.1 
+    interploss:
+        weight: 100.0
+    fn_loss:
+        weight: 0.1
+    loss_edge:
+        weight: 50
+    loss_laplacian:
+        weight: 0.1
+    cosine_similarity_loss: # 边缘损失
+        weight: 0.5
